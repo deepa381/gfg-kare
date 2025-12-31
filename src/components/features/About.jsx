@@ -16,8 +16,9 @@ const About = () => {
                         transition={{ duration: 0.8 }}
                     >
                         <h2 className="text-secondary mb-4 text-xs font-bold uppercase tracking-[0.2em]">Our Identity</h2>
-                        <h3 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-8 text-text leading-tight">
-                            The <span className="text-accent">Apex</span> of <br />Campus Innovation.
+                        <h3 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-8 leading-tight">
+                            <span className="text-text">The Apex of</span> <br />
+                            <span className="text-accent">Campus</span> <span className="text-text">Innovation.</span>
                         </h3>
 
                         <p className="text-text-muted text-lg mb-8 leading-relaxed font-light">
@@ -39,7 +40,7 @@ const About = () => {
 
                     {/* Right: Abstract Visual Pattern */}
                     <motion.div
-                        className="relative h-[400px] md:h-[500px] w-full rounded-2xl overflow-hidden border border-secondary/20 bg-bg-surface"
+                        className="relative h-[400px] md:h-[500px] w-full rounded-2xl overflow-hidden border border-secondary/20 bg-bg-surface card-hover"
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
@@ -47,10 +48,10 @@ const About = () => {
                     >
                         {/* CSS Abstract Pattern - No Stock Photos */}
                         <div className="absolute inset-0 opacity-40">
-                            <div className="absolute inset-0 bg-[linear-gradient(45deg,rgba(6,78,59,0.2)_25%,transparent_25%,transparent_50%,rgba(6,78,59,0.2)_50%,rgba(6,78,59,0.2)_75%,transparent_75%,transparent_100%)] bg-[length:24px_24px]"></div>
+                            <div className="absolute inset-0 bg-[linear-gradient(45deg,rgba(0,255,135,0.2)_25%,transparent_25%,transparent_50%,rgba(0,255,135,0.2)_50%,rgba(0,255,135,0.2)_75%,transparent_75%,transparent_100%)] bg-[length:24px_24px]"></div>
                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-accent/20 rounded-full animate-pulse-slow"></div>
                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 border border-accent/40 rounded-full dashed-border animate-[spin_10s_linear_infinite]"></div>
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-accent rounded-full shadow-[0_0_20px_rgba(16,185,129,0.8)]"></div>
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-accent rounded-full shadow-[0_0_20px_rgba(0,255,135,0.8)]"></div>
                         </div>
 
                         {/* Overlay Gradient */}

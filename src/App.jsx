@@ -10,6 +10,8 @@ import CoreTeam from './components/features/CoreTeam';
 import TeamPage from './pages/TeamPage';
 import SplashScreen from './components/layout/SplashScreen';
 import InteractiveBackground from './components/layout/InteractiveBackground';
+import CursorShadow from './components/layout/CursorShadow';
+import FloatingParticles from './components/layout/FloatingParticles';
 
 // Page components
 const HomePage = () => (
@@ -33,6 +35,8 @@ function App() {
       {!loading && (
         <>
           <InteractiveBackground />
+          <FloatingParticles />
+          <CursorShadow />
           <main>
             <Routes>
               <Route path="/" element={<><Navbar /><HomePage /><Footer /></>} />

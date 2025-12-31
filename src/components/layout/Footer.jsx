@@ -24,7 +24,7 @@ const Footer = () => {
                     {/* Brand Section */}
                     <div className="lg:col-span-1">
                         <motion.h3
-                            className="text-text font-serif text-2xl font-bold mb-6 tracking-tight"
+                            className="text-accent font-serif text-2xl font-bold mb-6 tracking-tight"
                             initial={{ opacity: 0, y: 10 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -47,7 +47,7 @@ const Footer = () => {
 
                     {/* Student Coordinators */}
                     <div>
-                        <h4 className="text-text font-serif text-lg font-medium mb-6">Student Leadership</h4>
+                        <h4 className="text-accent font-serif text-lg font-medium mb-6">Student Leadership</h4>
                         <ul className="space-y-4">
                             {coordinators.student.map((name, idx) => (
                                 <li key={idx} className="text-sm opacity-80 flex items-center gap-2 group cursor-default">
@@ -60,7 +60,7 @@ const Footer = () => {
 
                     {/* Faculty Coordinators */}
                     <div>
-                        <h4 className="text-text font-serif text-lg font-medium mb-6">Faculty Council</h4>
+                        <h4 className="text-accent font-serif text-lg font-medium mb-6">Faculty Council</h4>
                         <ul className="space-y-4">
                             {coordinators.faculty.map((name, idx) => (
                                 <li key={idx} className="text-sm opacity-80 flex items-center gap-2 group cursor-default">
@@ -73,7 +73,7 @@ const Footer = () => {
 
                     {/* Connect Section */}
                     <div>
-                        <h4 className="text-text font-serif text-lg font-medium mb-6">Connect</h4>
+                        <h4 className="text-accent font-serif text-lg font-medium mb-6">Connect</h4>
                         <div className="flex gap-4 mb-8">
                             {socialLinks.map((social) => (
                                 <motion.a

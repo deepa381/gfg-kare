@@ -80,6 +80,94 @@ export const getTeam = async () => {
             tenure: "2025–2026 (current)",
             image: "https://api.dicebear.com/7.x/avataaars/svg?seed=MemberD",
             linkedin: "https://linkedin.com"
+        },
+        {
+            id: 7,
+            name: "Member E",
+            role: "Core Member",
+            tenure: "2025–2026 (current)",
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=MemberE",
+            linkedin: "https://linkedin.com"
+        },
+        {
+            id: 8,
+            name: "Member F",
+            role: "Core Member",
+            tenure: "2025–2026 (current)",
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=MemberF",
+            linkedin: "https://linkedin.com"
+        },
+        {
+            id: 9,
+            name: "Member G",
+            role: "Core Member",
+            tenure: "2025–2026 (current)",
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=MemberG",
+            linkedin: "https://linkedin.com"
+        },
+        {
+            id: 10,
+            name: "Member H",
+            role: "Core Member",
+            tenure: "2025–2026 (current)",
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=MemberH",
+            linkedin: "https://linkedin.com"
+        },
+        {
+            id: 11,
+            name: "Member I",
+            role: "Core Member",
+            tenure: "2025–2026 (current)",
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=MemberI",
+            linkedin: "https://linkedin.com"
+        },
+        {
+            id: 12,
+            name: "Member J",
+            role: "Core Member",
+            tenure: "2025–2026 (current)",
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=MemberJ",
+            linkedin: "https://linkedin.com"
+        },
+        {
+            id: 13,
+            name: "Member K",
+            role: "Core Member",
+            tenure: "2025–2026 (current)",
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=MemberK",
+            linkedin: "https://linkedin.com"
+        },
+        {
+            id: 14,
+            name: "Member L",
+            role: "Core Member",
+            tenure: "2025–2026 (current)",
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=MemberL",
+            linkedin: "https://linkedin.com"
+        },
+        {
+            id: 15,
+            name: "Member M",
+            role: "Core Member",
+            tenure: "2025–2026 (current)",
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=MemberM",
+            linkedin: "https://linkedin.com"
+        },
+        {
+            id: 16,
+            name: "Member N",
+            role: "Core Member",
+            tenure: "2025–2026 (current)",
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=MemberN",
+            linkedin: "https://linkedin.com"
+        },
+        {
+            id: 17,
+            name: "Member O",
+            role: "Core Member",
+            tenure: "2025–2026 (current)",
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=MemberO",
+            linkedin: "https://linkedin.com"
         }
     ];
 };

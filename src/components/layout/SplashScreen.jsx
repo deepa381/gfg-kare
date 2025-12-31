@@ -2,20 +2,17 @@ import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 
 const SplashScreen = ({ finishLoading }) => {
-    // Control animations with a sequence
     const controls = useAnimation();
 
     useEffect(() => {
         const sequence = async () => {
-            // 1. Start: Elements are hidden (handled by initial props)
-
-            // 2. Animate In (Text reveals)
+            // Animate In (Text reveals)
             await controls.start("visible");
 
-            // 3. Linger (Let the user absorb the brand)
-            await new Promise(resolve => setTimeout(resolve, 2000)); // 2s linger
+            // Shorter linger time for better UX
+            await new Promise(resolve => setTimeout(resolve, 1500));
 
-            // 4. Signal transition to parent (Main App) - Parent will trigger unmount
+            // Signal transition to parent
             finishLoading();
         };
         sequence();
@@ -27,34 +24,59 @@ const SplashScreen = ({ finishLoading }) => {
             initial={{ opacity: 1 }}
             exit={{
                 opacity: 0,
-                scale: 1.1,
-                filter: "blur(10px)",
-                transition: { duration: 1.5, ease: [0.22, 1, 0.36, 1] } // Custom easing for "elegant" exit
+                scale: 1.05,
+                filter: "blur(20px)",
+                transition: { duration: 1.2, ease: [0.43, 0.13, 0.23, 0.96] }
             }}
         >
-            {/* Cinematic Noise Texture - Deeper opacity for filmic look */}
-            <div className="absolute inset-0 opacity-[0.07] pointer-events-none z-10 mix-blend-overlay"
-                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}
+            {/* Animated Gradient Background */}
+            <motion.div
+                className="absolute inset-0 bg-gradient-to-br from-bg via-primary/10 to-bg"
+                animate={{
+                    backgroundPosition: ['0% 0%', '100% 100%'],
+                }}
+                transition={{ duration: 8, repeat: Infinity, repeatType: "reverse" }}
             />
 
-            {/* Deep Atmospheric Lighting */}
-            <div className="absolute inset-0 bg-gradient-to-b from-bg via-transparent to-bg z-0 opacity-80"></div>
+            {/* Floating Particles */}
+            {[...Array(20)].map((_, i) => (
+                <motion.div
+                    key={i}
+                    className="absolute w-1 h-1 bg-accent/30 rounded-full"
+                    initial={{
+                        x: Math.random() * window.innerWidth,
+                        y: Math.random() * window.innerHeight,
+                        scale: Math.random() * 0.5 + 0.5,
+                    }}
+                    animate={{
+                        y: [null, Math.random() * window.innerHeight],
+                        x: [null, Math.random() * window.innerWidth],
+                        opacity: [0, 1, 0],
+                    }}
+                    transition={{
+                        duration: Math.random() * 3 + 2,
+                        repeat: Infinity,
+                        delay: Math.random() * 2,
+                    }}
+                />
+            ))}
 
+            {/* Glowing Orbs */}
             <motion.div
-                className="absolute top-[-10%] left-[-10%] w-[70vw] h-[70vw] bg-secondary/20 rounded-full blur-[120px] mix-blend-screen"
+                className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[100px]"
                 animate={{
-                    scale: [1, 1.1, 1],
-                    rotate: [0, 10, 0],
+                    scale: [1, 1.3, 1],
+                    opacity: [0.3, 0.5, 0.3],
                 }}
-                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.div
-                className="absolute bottom-[-10%] right-[-10%] w-[70vw] h-[70vw] bg-primary/20 rounded-full blur-[120px] mix-blend-screen"
+                className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/15 rounded-full blur-[100px]"
                 animate={{
-                    scale: [1, 1.2, 1],
-                    x: [0, -20, 0],
+                    scale: [1.2, 1, 1.2],
+                    opacity: [0.4, 0.6, 0.4],
                 }}
-                transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             />
 
             {/* Typography Content */}
@@ -63,19 +85,26 @@ const SplashScreen = ({ finishLoading }) => {
                     initial="hidden"
                     animate={controls}
                     variants={{
-                        hidden: { opacity: 0, y: 20 },
+                        hidden: { opacity: 0, y: 30 },
                         visible: {
                             opacity: 1,
                             y: 0,
-                            transition: { duration: 1, ease: "easeOut" }
+                            transition: { duration: 0.8, ease: "easeOut" }
                         }
                     }}
-                    className="mb-4 relative"
+                    className="mb-6 relative"
                 >
-                    <span className="font-sans text-sm md:text-base text-accent uppercase tracking-[0.5em] opacity-80">
-                        we 
-                    </span>
-                    {/* Elegant line divider */}
+                    <motion.span
+                        className="font-sans text-sm md:text-base text-accent uppercase tracking-[0.5em] opacity-90"
+                        animate={{
+                            opacity: [0.7, 1, 0.7],
+                        }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                    >
+                        we
+                    </motion.span>
+
+                    {/* Animated line divider */}
                     <motion.div
                         initial={{ scaleX: 0 }}
                         animate={controls}
@@ -83,10 +112,10 @@ const SplashScreen = ({ finishLoading }) => {
                             hidden: { scaleX: 0 },
                             visible: {
                                 scaleX: 1,
-                                transition: { duration: 1.5, delay: 0.5, ease: "circOut" }
+                                transition: { duration: 1.2, delay: 0.4, ease: "circOut" }
                             }
                         }}
-                        className="absolute -bottom-2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"
+                        className="absolute -bottom-2 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent"
                     />
                 </motion.div>
 
@@ -96,17 +125,57 @@ const SplashScreen = ({ finishLoading }) => {
                         initial="hidden"
                         animate={controls}
                         variants={{
-                            hidden: { y: 100, opacity: 0 },
+                            hidden: { y: 120, opacity: 0 },
                             visible: {
                                 y: 0,
                                 opacity: 1,
-                                transition: { duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }
+                                transition: { duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }
                             }
                         }}
                     >
-                        GFG <span className="text-secondary opacity-50">|</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-text via-accent to-text">KARE</span>
+                        GFG <span className="text-secondary/50">|</span>{' '}
+                        <motion.span
+                            className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-text to-accent"
+                            animate={{
+                                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                            }}
+                            transition={{ duration: 3, repeat: Infinity }}
+                            style={{ backgroundSize: '200% 200%' }}
+                        >
+                            KARE
+                        </motion.span>
                     </motion.h1>
                 </div>
+
+                {/* Loading indicator */}
+                <motion.div
+                    className="mt-12 flex gap-2"
+                    initial="hidden"
+                    animate={controls}
+                    variants={{
+                        hidden: { opacity: 0 },
+                        visible: {
+                            opacity: 1,
+                            transition: { duration: 0.6, delay: 0.8 }
+                        }
+                    }}
+                >
+                    {[0, 1, 2].map((i) => (
+                        <motion.div
+                            key={i}
+                            className="w-2 h-2 bg-accent rounded-full"
+                            animate={{
+                                scale: [1, 1.5, 1],
+                                opacity: [0.5, 1, 0.5],
+                            }}
+                            transition={{
+                                duration: 1,
+                                repeat: Infinity,
+                                delay: i * 0.2,
+                            }}
+                        />
+                    ))}
+                </motion.div>
             </div>
         </motion.div>
     );

@@ -8,39 +8,39 @@ export default {
         extend: {
             colors: {
                 bg: {
-                    DEFAULT: '#010a05', // Deepest Green/Black (Background)
-                    surface: '#03110a', // Dark Forest (Surface)
-                    glass: 'hsla(150, 30%, 5%, 0.8)',
+                    DEFAULT: '#0a0f0a', // Deep Dark Green/Black (Background)
+                    surface: '#0d130d', // Dark Forest (Surface)
+                    glass: 'hsla(120, 20%, 5%, 0.8)',
                 },
                 primary: {
-                    DEFAULT: '#064e3b', // Deep Royal Green (Primary - Near Black/Elegant)
-                    light: '#065f46',
+                    DEFAULT: '#1a3a1a', // Deep Forest Green (Primary)
+                    light: '#2d5a2d',
                 },
                 secondary: {
-                    DEFAULT: '#1a4731', // Muted Forest Green (Secondary)
+                    DEFAULT: '#1e2b1e', // Dark Slate Green (Secondary)
                 },
                 accent: {
-                    DEFAULT: '#10b981', // Soft Emerald Glow (Accent - Sparingly)
-                    glow: 'rgba(16, 185, 129, 0.3)',
+                    DEFAULT: '#00ff87', // Bright Lime/Neon Green (Accent)
+                    glow: 'rgba(0, 255, 135, 0.3)',
                 },
                 gold: {
-                    DEFAULT: '#FFD700', // Reserved for Founders
-                    glow: 'rgba(255, 215, 0, 0.4)',
+                    DEFAULT: '#f59e0b', // Refined Amber Gold
+                    glow: 'rgba(245, 158, 11, 0.4)',
                 },
                 text: {
-                    DEFAULT: '#ecfdf5', // Off-white
-                    muted: '#6ee7b7', // Muted Greenish Text
+                    DEFAULT: '#f1f5f9', // Off-white
+                    muted: '#94a3b8', // Muted Slate
                 },
-                border: '#064e3b',
+                border: '#1a3a1a',
             },
             fontFamily: {
-                sans: ['Outfit', 'sans-serif'],
-                serif: ['Cinzel', 'serif'],
+                sans: ['Inter', 'sans-serif'],
+                serif: ['Montserrat', 'sans-serif'],
             },
             boxShadow: {
-                'glow-accent': '0 0 15px rgba(16, 185, 129, 0.2)',
-                'glow-accent-strong': '0 0 25px rgba(16, 185, 129, 0.3)',
-                'glow-gold': '0 0 15px rgba(255, 215, 0, 0.3)',
+                'glow-accent': '0 0 15px rgba(0, 255, 135, 0.2)',
+                'glow-accent-strong': '0 0 25px rgba(0, 255, 135, 0.3)',
+                'glow-gold': '0 0 15px rgba(245, 158, 11, 0.3)',
                 'glass': '0 4px 30px rgba(0, 0, 0, 0.6)',
             },
             animation: {

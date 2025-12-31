@@ -6,9 +6,40 @@ const Hero = () => {
         <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0 bg-bg z-0">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,78,59,0.15)_0%,transparent_70%)] opacity-60"></div>
-                {/* Subtle Grid */}
-                {/* <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.02]"></div> */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,255,135,0.15)_0%,transparent_70%)] opacity-60"></div>
+
+                {/* Diagonal Wave Pattern */}
+                <div className="absolute inset-0 overflow-hidden opacity-10">
+                    <svg className="absolute w-full h-full" preserveAspectRatio="none">
+                        <defs>
+                            <pattern id="diagonal-waves" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                                <path
+                                    d="M0,50 Q25,30 50,50 T100,50"
+                                    fill="none"
+                                    stroke="rgba(236, 253, 245, 0.3)"
+                                    strokeWidth="2"
+                                />
+                                <path
+                                    d="M0,70 Q25,50 50,70 T100,70"
+                                    fill="none"
+                                    stroke="rgba(236, 253, 245, 0.2)"
+                                    strokeWidth="1.5"
+                                />
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#diagonal-waves)" transform="rotate(-15 960 540)" />
+                    </svg>
+                </div>
+
+                {/* Large Diagonal Accent Stripe */}
+                <div
+                    className="absolute w-[150%] h-[800px] bg-gradient-to-br from-transparent via-white/5 to-transparent"
+                    style={{
+                        transform: 'rotate(-15deg)',
+                        top: '20%',
+                        right: '-20%'
+                    }}
+                ></div>
             </div>
 
             <div className="container relative z-10 text-center max-w-4xl px-4">
@@ -21,8 +52,8 @@ const Hero = () => {
                         we
                     </span>
 
-                    <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif font-bold text-text tracking-widest leading-none mb-12">
-                        GFG <span className="text-transparent bg-clip-text bg-gradient-to-r from-text via-accent to-text opacity-90">KARE</span>
+                    <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif font-black tracking-tighter leading-none mb-12 text-glow">
+                        <span className="text-accent uppercase">GFG</span> <span className="text-text uppercase">KARE</span>
                     </h1>
                 </motion.div>
 
@@ -43,7 +74,7 @@ const Hero = () => {
                         transition={{ duration: 1.5, delay: 1 }}
                     >
                         <button
-                            onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
+                            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
                             className="group relative px-8 py-3 overflow-hidden rounded-full transition-all duration-300"
                         >
                             <span className="relative z-10 text-xs font-bold uppercase tracking-[0.2em] text-accent group-hover:text-bg transition-colors">Enter</span>

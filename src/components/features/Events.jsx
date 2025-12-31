@@ -1,13 +1,14 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import WinnersModal from './WinnersModal';
+import poster from '../../assets/Algorithmist_poster.jpeg';
 
 const EVENTS_DATA = {
     upcoming: {
         title: "ALGORITHMIST'26",
         date: "March 15-16, 2026",
         description: "The ultimate coding summit where logic meets glory. Two days of intense algorithmic challenges, workshops, and networking with elite developers.",
-        image: "bg-gradient-to-br from-primary via-bg to-bg" // Abstract placeholder
+        image: poster
     },
     past: [
         {
@@ -57,7 +58,7 @@ const Events = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h3 className="text-4xl text-text font-serif">Upcoming Event</h3>
+                        <h3 className="text-4xl font-serif"><span className="text-accent">Upcoming</span> <span className="text-text">Event</span></h3>
                     </motion.div>
 
                     <motion.div
@@ -67,15 +68,19 @@ const Events = () => {
                         viewport={{ once: true }}
                     >
                         {/* Event Card Grid */}
-                        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[400px]">
-                            {/* Left: Poster Placeholder */}
-                            <div className={`${EVENTS_DATA.upcoming.image} relative h-64 lg:h-auto flex items-center justify-center overflow-hidden`}>
-                                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-                                <span className="text-accent/20 text-6xl font-black uppercase rotate-[-15deg] tracking-widest border-4 border-accent/20 p-4">Poster</span>
+                        <div className="grid grid-cols-1 lg:grid-cols-2 lg:h-[80vh] min-h-[500px]">
+                            {/* Left: Poster Image */}
+                            <div className="relative h-[60vh] lg:h-full flex items-center justify-center overflow-hidden bg-bg-surface border-b lg:border-b-0 lg:border-r border-secondary/20">
+                                <img
+                                    src={EVENTS_DATA.upcoming.image}
+                                    alt="Algorithmist Poster"
+                                    className="w-full h-full object-contain p-4 lg:p-8"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-bg/40 to-transparent pointer-events-none"></div>
                             </div>
 
                             {/* Right: Content */}
-                            <div className="bg-bg-surface p-10 lg:p-16 flex flex-col justify-center relative">
+                            <div className="bg-bg-surface p-10 lg:p-16 flex flex-col justify-center relative overflow-y-auto">
                                 <div className="absolute top-0 right-0 p-6 opacity-10">
                                     <svg width="100" height="100" viewBox="0 0 100 100" fill="none" className="text-accent animate-spin-slow">
                                         <path d="M50 0 L100 50 L50 100 L0 50 Z" stroke="currentColor" strokeWidth="1" />
@@ -85,7 +90,9 @@ const Events = () => {
                                 <span className="inline-block py-1 px-3 border border-accent/30 rounded-full text-accent text-xs font-bold uppercase tracking-widest w-fit mb-6">
                                     Registration Open
                                 </span>
-                                <h3 className="text-4xl md:text-5xl font-serif font-bold text-text mb-4">{EVENTS_DATA.upcoming.title}</h3>
+                                <h3 className="text-4xl md:text-5xl font-serif font-black mb-4 tracking-tighter text-glow uppercase">
+                                    <span className="text-text">Algorithmist'</span><span className="text-accent">26</span>
+                                </h3>
                                 <p className="text-accent text-sm uppercase tracking-widest mb-8 flex items-center gap-2">
                                     <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
                                     {EVENTS_DATA.upcoming.date}
@@ -111,7 +118,7 @@ const Events = () => {
                         viewport={{ once: true }}
                     >
                         <h2 className="text-secondary text-xs font-bold uppercase tracking-[0.2em] mb-2">Mission Logs</h2>
-                        <h3 className="text-4xl text-text font-serif">Past Operations</h3>
+                        <h3 className="text-4xl font-serif text-text">Past Operations</h3>
                     </motion.div>
 
                     {/* Slider Wrapper with side buttons */}

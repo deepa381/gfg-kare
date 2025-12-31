@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+import logo from '../../assets/logo.png';
+
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
@@ -36,8 +38,18 @@ const Navbar = () => {
             transition={{ duration: 0.5 }}
         >
             <div className="container flex justify-between items-center">
-                <Link to="/" className="font-serif text-xl font-bold text-text hover:text-accent transition-colors duration-300 tracking-wider">
-                    GFG <span className="text-accent">CAMPUS BODY KARE</span>
+                <Link to="/" className="font-serif text-xl font-bold tracking-wider flex items-center gap-4 group">
+                    <div className="w-12 h-12 flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-110">
+                        <img
+                            src={logo}
+                            alt="GFG KARE Logo"
+                            className="w-full h-full object-contain"
+                        />
+                    </div>
+                    <div className="flex flex-col">
+                        <span className="text-accent text-lg leading-tight">GFG</span>
+                        <span className="text-text text-[10px] tracking-[0.3em] font-medium opacity-80 uppercase">Campus Body KARE</span>
+                    </div>
                 </Link>
 
                 <ul className="flex gap-8 items-center">
