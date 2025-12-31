@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cinzel:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-transparent text-text font-sans antialiased overflow-x-hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif font-semibold tracking-wide text-text;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 font-semibold uppercase tracking-wider rounded-full transition-all duration-300 border border-transparent cursor-pointer;
+  }
+
+  /* Primary Button now uses Secondary bg with Accent Border/Glow for a more Royal feel (less bright) */
+  .btn-primary {
+    @apply bg-secondary/80 text-text border border-accent/50 shadow-glow-accent hover:bg-secondary hover:border-accent hover:shadow-glow-accent-strong hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply bg-transparent text-text border-secondary hover:bg-secondary/20 hover:border-accent/50 hover:text-accent hover:-translate-y-0.5;
+  }
+
+  .glass-panel {
+    @apply bg-bg-glass backdrop-blur-xl border border-secondary/30 rounded-xl p-8 shadow-glass;
+  }
+
+  .container {
+    @apply max-w-[1280px] mx-auto px-8;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
