@@ -24,7 +24,7 @@ const Founders = () => {
             <div className="container relative z-10">
                 <div className="text-center mb-20">
                     <motion.h2
-                        className="text-gold mb-4 text-sm uppercase tracking-[0.5em] font-bold"
+                        className="text-accent mb-4 text-sm uppercase tracking-[0.5em] font-bold"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
@@ -38,7 +38,7 @@ const Founders = () => {
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
                     >
-                        Founding <span className="text-gold drop-shadow-[0_0_15px_rgba(255,215,0,0.2)]">Signatories</span>
+                        The Founding <span className="text-accent text-glow">Signatories</span>
                     </motion.h3>
                 </div>
 
@@ -52,13 +52,13 @@ const Founders = () => {
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 + (index * 0.2) }}
                         >
-                            <div className="w-64 h-80 bg-gradient-to-b from-bg to-secondary/30 border border-gold/30 rounded-t-full mb-6 relative overflow-hidden transition-all duration-500 group-hover:border-gold/60 group-hover:shadow-[0_0_30px_rgba(255,215,0,0.1)]">
+                            <div className="w-64 h-80 bg-gradient-to-b from-bg to-secondary/30 border border-accent/30 rounded-t-full mb-6 relative overflow-hidden transition-all duration-500 group-hover:border-accent/60 group-hover:shadow-glow-accent">
                                 {/* Image Placeholder */}
                                 <div className="absolute inset-0 bg-secondary/10"></div>
                             </div>
 
-                            <h4 className="text-2xl font-serif text-text mb-2 group-hover:text-gold transition-colors">{founder.name}</h4>
-                            <p className="text-gold/80 text-xs uppercase tracking-widest">{founder.role}</p>
+                            <h4 className="text-2xl font-serif text-text mb-2 group-hover:text-accent transition-colors">{founder.name}</h4>
+                            <p className="text-accent/80 text-xs uppercase tracking-widest">{founder.role}</p>
                         </motion.div>
                     ))}
                 </div>

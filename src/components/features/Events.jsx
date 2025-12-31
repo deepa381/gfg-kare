@@ -2,6 +2,9 @@ import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import WinnersModal from './WinnersModal';
 import poster from '../../assets/Algorithmist_poster.jpeg';
+import hackheist from '../../assets/hackheist.jpg';
+import nationalSkillup from '../../assets/nationalSkillup.jpg';
+import GeekFest from '../../assets/GeekFest.jpg';
 
 const EVENTS_DATA = {
     upcoming: {
@@ -15,19 +18,19 @@ const EVENTS_DATA = {
             id: 101,
             title: "GeekFest",
             description: "Annual tech harvest celebrating innovation.",
-            image: "bg-secondary/20"
+            image: GeekFest
         },
         {
             id: 102,
             title: "HackHeist",
             description: "24-hour CTF and cybersecurity challenge.",
-            image: "bg-accent/10"
+            image: hackheist
         },
         {
             id: 103,
             title: "National Skill UP",
             description: "Nationwide campaign for technical upskilling.",
-            image: "bg-primary/20"
+            image: nationalSkillup
         }
     ]
 };
@@ -100,9 +103,11 @@ const Events = () => {
                                 <p className="text-text-muted text-lg mb-10 leading-relaxed border-l-2 border-secondary pl-6">
                                     {EVENTS_DATA.upcoming.description}
                                 </p>
-                                <button className="btn btn-primary self-start">
-                                    Explore
-                                </button>
+                                <a href="https://algorithmist26.vercel.app/">
+                                    <button className="btn btn-primary self-start">
+                                        Explore
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </motion.div>
@@ -164,10 +169,21 @@ const Events = () => {
                                     transition={{ delay: index * 0.1 }}
                                 >
                                     {/* Image Area */}
-                                    <div className={`h-48 ${event.image} relative overflow-hidden`}>
+                                    <div className="h-48 relative overflow-hidden bg-secondary/10">
+                                        {typeof event.image === 'string' && event.image.startsWith('bg-') ? (
+                                            <div className={`absolute inset-0 ${event.image}`}></div>
+                                        ) : (
+                                            <img
+                                                src={event.image}
+                                                alt={event.title}
+                                                className="absolute inset-0 w-full h-full object-cover"
+                                            />
+                                        )}
                                         <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
-                                        <div className="absolute bottom-4 left-4">
-                                            <h4 className="text-2xl font-bold text-white font-serif">{event.title}</h4>
+                                        <div className="absolute bottom-4 left-4 right-4">
+                                            <div className="inline-block px-4 py-2 bg-bg/80 backdrop-blur-md border-l-4 border-accent rounded-r-lg">
+                                                <h4 className="text-lg md:text-l font-bold text-white font-serif tracking-wide">{event.title}</h4>
+                                            </div>
                                         </div>
                                     </div>
 

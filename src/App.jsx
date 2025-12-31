@@ -7,6 +7,7 @@ import Hero from './components/features/Hero';
 import About from './components/features/About';
 import Events from './components/features/Events';
 import CoreTeam from './components/features/CoreTeam';
+import Founders from './components/features/Founders';
 import TeamPage from './pages/TeamPage';
 import SplashScreen from './components/layout/SplashScreen';
 import InteractiveBackground from './components/layout/InteractiveBackground';
@@ -18,7 +19,12 @@ const HomePage = () => (
   <>
     <Hero />
     <About />
-    <CoreTeam />
+    <CoreTeam
+      title="MEET OUR CORE TEAM"
+      subtitle="The 2025-2026 Leadership"
+      tenureFilter="current"
+      showViewAll={true}
+    />
     <Events />
   </>
 );

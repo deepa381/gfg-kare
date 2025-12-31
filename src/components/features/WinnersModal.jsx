@@ -86,7 +86,7 @@ const WinnersModal = ({ eventId, onClose }) => {
                                 </div>
 
                                 {/* Full List */}
-                                <div className="w-full bg-bg/50 rounded-lg overflow-hidden border border-secondary/20">
+                                {/* <div className="w-full bg-bg/50 rounded-lg overflow-hidden border border-secondary/20">
                                     <div className="grid grid-cols-12 bg-secondary/20 p-4 text-xs uppercase tracking-widest font-bold text-accent">
                                         <div className="col-span-2 text-center">Rank</div>
                                         <div className="col-span-6">Team / Name</div>
@@ -99,7 +99,7 @@ const WinnersModal = ({ eventId, onClose }) => {
                                             <div className="col-span-4 text-right text-text-muted text-xs uppercase tracking-wide">{winner.project}</div>
                                         </div>
                                     ))}
-                                </div>
+                                </div> */}
                             </>
                         )}
                     </div>
