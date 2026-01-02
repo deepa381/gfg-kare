@@ -75,7 +75,7 @@ const CoreTeam = ({
                                             <img
                                                 src={member.image}
                                                 alt={member.name}
-                                                className="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500"
+                                                className="w-full h-full object-cover rounded-full transition-all duration-500"
                                             />
                                         </div>
                                         <a

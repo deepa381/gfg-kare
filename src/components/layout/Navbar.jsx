@@ -6,6 +6,7 @@ import logo from '../../assets/logo.png';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
     const location = useLocation();
 
     useEffect(() => {
@@ -28,6 +29,7 @@ const Navbar = () => {
         if (element) {
             element.scrollIntoView({ behavior: 'auto' });
         }
+        setMenuOpen(false);
     };
 
     return (
@@ -52,7 +54,8 @@ const Navbar = () => {
                     </div>
                 </Link>
 
-                <ul className="flex gap-8 items-center">
+                {/* Desktop Navigation */}
+                <ul className="hidden md:flex gap-8 items-center">
                     {navLinks.map((link) => (
                         <li key={link.name}>
                             {location.pathname === '/' ? (
@@ -81,7 +84,60 @@ const Navbar = () => {
                         </button>
                     </li>
                 </ul>
+
+                {/* Hamburger Menu Button - Mobile Only */}
+                <button
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    className="md:hidden flex flex-col gap-1.5 z-50"
+                    aria-label="Toggle menu"
+                >
+                    <span className={`block h-0.5 w-6 bg-accent transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+                    <span className={`block h-0.5 w-6 bg-accent transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`}></span>
+                    <span className={`block h-0.5 w-6 bg-accent transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+                </button>
             </div>
+
+            {/* Mobile Navigation Menu */}
+            {menuOpen && (
+                <motion.div
+                    className="md:hidden bg-bg-surface/95 backdrop-blur-md border-b border-secondary mt-4 py-4"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                >
+                    <ul className="container flex flex-col gap-4">
+                        {navLinks.map((link) => (
+                            <li key={link.name}>
+                                {location.pathname === '/' ? (
+                                    <button
+                                        onClick={() => scrollToSection(link.id)}
+                                        className="block w-full text-left text-sm uppercase tracking-wider font-medium text-text hover:text-accent transition-colors duration-300"
+                                    >
+                                        {link.name}
+                                    </button>
+                                ) : (
+                                    <Link
+                                        to={link.path}
+                                        onClick={() => setMenuOpen(false)}
+                                        className="block w-full text-left text-sm uppercase tracking-wider font-medium text-text hover:text-accent transition-colors duration-300"
+                                    >
+                                        {link.name}
+                                    </Link>
+                                )}
+                            </li>
+                        ))}
+                        <li className="pt-2 border-t border-secondary/20">
+                            <button
+                                onClick={() => scrollToSection('footer')}
+                                className="btn btn-primary w-full"
+                            >
+                                Join Us
+                            </button>
+                        </li>
+                    </ul>
+                </motion.div>
+            )}
         </motion.nav>
     );
 };

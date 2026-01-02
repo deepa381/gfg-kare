@@ -76,7 +76,7 @@ const TeamPage = () => {
                                                     viewport={{ once: true }}
                                                 >
                                                     <div className="w-32 h-32 rounded-full overflow-hidden mb-6 border-2 border-secondary group-hover:border-accent transition-all duration-500 group-hover:scale-105 group-hover:shadow-glow-accent">
-                                                        <img src={member.image} alt={member.name} className="w-full h-full object-cover transition-all duration-500 grayscale group-hover:grayscale-0" />
+                                                        <img src={member.image} alt={member.name} className="w-full h-full object-cover transition-all duration-500" />
                                                     </div>
                                                     <h3 className="text-xl font-bold mb-1 text-text">{member.name}</h3>
                                                     <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium">{member.role}</p>
